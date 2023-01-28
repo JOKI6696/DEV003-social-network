@@ -1,7 +1,6 @@
-import { onNavigate } from '../main.js';
 import { login } from '../auth.js';
 
-export const Welcome = () => {
+export const Welcome = (onNavigate) => {
   const div = document.createElement('div');
   const logo = document.createElement('img');
   const buttonLogin = document.createElement('button');
@@ -22,7 +21,7 @@ export const Welcome = () => {
   buttonRegister.addEventListener('click', () => {
     onNavigate('/signup');
   });
-  
+
   div.append(logo, buttonLogin, buttonRegister, buttonGoogle);
 
   return div;

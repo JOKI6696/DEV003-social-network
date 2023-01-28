@@ -17,14 +17,14 @@ export const onNavigate = (pathname) => {
     window.location.origin + pathname,
   );
   root.removeChild(root.firstChild);
-  root.appendChild(routes[pathname]());
+  root.appendChild(routes[pathname](onNavigate));
 };
 
 const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
   root.removeChild(root.firstChild);
-  root.append(component());
+  root.append(component(onNavigate));
 };
 
-root.appendChild(component());
+root.appendChild(component(onNavigate));
