@@ -24,7 +24,7 @@ export const Login = (onNavigate) => {
   divImage.setAttribute('src', loginImg);
   divContent.setAttribute('class', 'divContent');
   form.setAttribute('id', 'form');
-  form.setAttribute('class', 'containerForm');
+  form.setAttribute('class', 'containerForm login');
   labelEmail.setAttribute('for', 'email');
   inputEmail.setAttribute('name', 'email');
   inputEmail.setAttribute('type', 'text');

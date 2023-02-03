@@ -334,7 +334,6 @@ footer p{
         width: 90%;
         max-width: 100rem;
 
-
     }
     .divImage{
         height: 100%;
@@ -344,7 +343,7 @@ footer p{
         object-fit: cover;
        
     }
-    .login{
+    .containerForm{
         margin-left:0%;
         margin-top: 0%;
         margin-bottom: 0%;
