@@ -157,7 +157,7 @@ export const Signup = (onNavigate) => {
         validarPassword2();
         break;
       default:
-        console.log('default');
+        // console.log('default');
     }
   };
 
@@ -182,7 +182,7 @@ export const Signup = (onNavigate) => {
             onNavigate('/login');
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       })
       .catch((error) => {

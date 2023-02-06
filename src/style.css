@@ -1,5 +1,5 @@
 *{
-    /* font-size: 62.5%;  */
+    font-size: 62.5%;
     font-family: 'Roboto';
 }
 
@@ -11,7 +11,8 @@ body{
 }
 
 #root{
-    height: 100vh;
+    height:100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -263,6 +264,137 @@ footer p{
 
 .divImage{
     display:none;
+}
+/*Formato Home*/
+.home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+    margin:0;
+    align-items: center;
+    background-color:white;
+
+}
+.header {
+    background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)),url(./media/background-2.png);
+    background-repeat: repeat;
+    background-size: 30rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.header p {
+    font-family: "Nunito";
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
+    margin: 2rem;
+}
+.nav{
+    position: fixed;
+    top:0;
+    right: -100px;
+    background: white;
+    width: 6rem;
+    height: 6rem;
+    padding: 4rem;
+    z-index: 1;
+    margin: 2rem;
+    border-radius:1rem;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    align-items: center;
+    justify-content: center;
+}
+#btn-menu {
+  display: flex;;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: white;
+  font-size: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  float: right;
+  margin: 2rem;
+  
+  }
+.fa-bars{
+    color:var(--main-color);
+}
+.nav button {
+    text-align: left ;
+    background: rgba(154,84,160,0.75);
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 10rem;
+    height: auto;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
+  }
+
+  .menuBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    display: flex;
+  
+  }
+.containerNewPost{
+    display: flex;
+    width: auto;
+    height: auto;
+}
+.containerNewPost input{
+    background-color:rgba(217, 217, 217, 0.65);
+    border-radius: 1rem;
+    border:0;
+    padding: 1rem;
+    min-width: 25rem;
+    height: auto;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.containerNewPost button{
+    background: rgba(154,84,160,0.75);
+    color: white;
+    margin: 2rem 0 0 0;
+    padding: var(--element-padding);
+    font-size: 1rem;
+    width: 10rem;
+    height: auto;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
+    align-self: right;
+}
+.containerAllPost{
+    height: auto;
+    width: 90%;
+    overflow: auto;
+}
+.containerPost{
+    background-color: rgba(154, 84, 160, 0.25);
+    border-radius: 2rem;
+    padding: 1rem;
+    width: 90%;
+    height: auto;
+    margin: 0;
+    font-size: 2rem;
 }
 
 @media (min-width: 700px) {

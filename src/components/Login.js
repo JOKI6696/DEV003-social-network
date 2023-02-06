@@ -64,7 +64,7 @@ export const Login = (onNavigate) => {
         validateInput(expresions.password, e.target, 'password');
         break;
       default:
-        console.log('default');
+        // console.log('default');
     }
   };
 
@@ -83,13 +83,13 @@ export const Login = (onNavigate) => {
         if (user.emailVerified === false) {
           alert('Email no verificado, se le envió un correo de verificación');
         } else {
-          console.log('verificado');
+          // console.log('verificado');
           onNavigate('/home');
         }
       })
       .catch((error) => {
-        console.log(error.code);
-        console.log(error.message);
+        // console.log(error.code);
+        // console.log(error.message);
         alert(error.message);
       });
   }
@@ -99,32 +99,9 @@ export const Login = (onNavigate) => {
     if (allInputs.email && allInputs.password) {
       userLogin();
     } else {
-      console.log('Revisa tus datos');
+      // console.log('Revisa tus datos');
     }
   });
-
-  // buttonLogin.addEventListener('click', () => {
-  //   // const name = inputName.value;
-  //   // const userName = inputUser.value;
-  //   const email = inputEmail.value;
-  //   const password = inputPassword.value;
-  //   // console.log(email, password);
-  //   loginWithEmail(email, password)
-  //     .then((result) => {
-  //       const user = result.user;
-  //       if (user.emailVerified === false) {
-  //         alert('Email no verificado, se le envió un correo de verificación');
-  //       } else {
-  //         console.log('verificado');
-  //         onNavigate('/home');
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.code);
-  //       console.log(error.message);
-  //       alert(error.message);
-  //     });
-  // });
 
   // cambiando el background de root
   // export const background2 = () => document.getElementById('root')
