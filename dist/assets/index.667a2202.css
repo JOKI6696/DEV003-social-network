@@ -280,7 +280,7 @@ footer p{
 }
 
 .header {
-    background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)),url(./media/background-2.png);
+    background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)),url(/assets/background-2.74171009.png);
     background-repeat: repeat;
     background-size: 30rem;
     width: 100%;

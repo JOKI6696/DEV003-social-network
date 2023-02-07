@@ -101,30 +101,6 @@ export const Signup = (onNavigate) => {
   correctMessage.textContent = 'Formulario enviado, verifica tu email e inicia sesión.';
   errorMessage.textContent = 'Por favor verifica que tus datos sean válidos.';
 
-  // export const expresions = {
-  //   user: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-  //   name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-  //   password: /^.{4,12}$/, // 4 a 12 digitos.
-  //   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  // };
-  // export const allInputs = {
-  //   user: false,
-  //   name: false,
-  //   email: false,
-  //   password: false,
-
-  // };
-
-  // export const validateInput = (expresion, input, element) => {
-  //   if (expresion.test(input.value)) {
-  //     document.querySelector(`#error${element}`).classList.replace('error-display', 'error');
-  //     allInputs[element] = true;
-  //   } else {
-  //     document.querySelector(`#error${element}`).classList.replace('error', 'error-display');
-  //     allInputs[element] = false;
-  //   }
-  // };
-
   const validarPassword2 = () => {
     const inputPassword1 = document.getElementById('password');
     const inputPasswordConfirm = document.getElementById('password2');

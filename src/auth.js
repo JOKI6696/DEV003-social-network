@@ -6,11 +6,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendEmailVerification,
-  // updateProfile,
-  // onAuthStateChanged,
 } from 'firebase/auth';
 import { app as firebase } from './firebase-config.js';
-// import { onNavigate } from './main.js';
 
 export const auth = getAuth(firebase);
 auth.languageCode = 'es';
@@ -54,11 +51,3 @@ export function registerNewUser(email, password) {
 //   };
 //   return updateProfile(user, userProperties);
 // };
-
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     onNavigate('/');
-//   } else {
-//     onNavigate('/login');
-//   }
-// });
