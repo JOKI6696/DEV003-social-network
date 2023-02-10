@@ -1,0 +1,285 @@
+*{
+    font-size: 62.5%;
+    font-family: 'Roboto';
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#root{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root{
+    --main-color: rgb(154,84,160);
+    --second-color: rgb(255, 168, 0);
+    --element-padding: 1rem 0;
+    --element-marging: 1.5rem;
+}
+
+.containerWelcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerForm button{
+    background-color: white;
+    margin: 1rem;
+    padding: var(--element-padding);
+    font-size: 1.5rem;
+    width: 20rem;
+    height: auto;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
+    justify-content: center;
+ }
+
+.containerWelcome button{
+    background-color: white;
+    margin: 1rem;
+    padding: var(--element-padding);
+    font-size: 1.5rem;
+    width: 20rem;
+    height: auto;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
+    justify-content: center;
+ }
+
+ .containerWelcome button:hover {
+    color: white;
+    background: var(--main-color);
+ }
+
+.logo-fems{
+    margin-bottom: 5rem;
+    width: 20rem;
+}
+
+.logo-color{
+    display: none;
+}
+
+.google{
+    margin: 1rem;
+    padding: 0.8rem 0;
+    font-size: 1.5rem;
+    width: 20rem;
+    height: auto;
+    border-radius: 2rem;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
+    text-align: center;
+    background-color: white;
+}
+
+.google img{
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.google span{
+    font-size: 1.5rem;
+    font-family: 'roboto';
+}
+/* form view */
+.error{
+    display: none;
+}
+
+.error-display{
+    font-size: 1rem;
+    color: red;
+    width: 22rem ;  
+    text-align: center;
+    line-height: 1.1rem;
+    display: block;
+}
+
+#correctMessage{
+    font-size: 1.5rem;
+    color: var(--main-color);
+    width: 22rem ;  
+    text-align: center;
+    line-height: 1.6rem;
+    display: none;
+}
+
+#errorMessage{
+    font-size: 1.5rem;
+    color: red;
+    width: 22rem ;  
+    text-align: center;
+    line-height: 1.6rem;
+    display: none;
+}
+
+/* Descripción - Modal*/
+.none{
+    display: none;
+}
+
+.modalContainer{
+    background-color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: auto;
+    padding: var(--element-padding);
+}
+
+.modalContent{
+    color: var(--main-color);
+    font-size: 1.5rem;
+}
+
+.modalSpan{
+    width: 4.1rem;
+    height: 4.1rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--main-color);
+    border-radius: 50%;
+    background-color: white;
+    margin-bottom: -6rem;
+    cursor: pointer;
+}
+
+/* Formato login & signup*/
+.containerForm {
+    background: white;
+    border-radius: 20px;
+    width: auto;
+    height: auto;
+    padding: 3rem;
+    box-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
+}
+
+.containerForm input {
+    padding: var(--element-padding);
+    font-size: 1.5rem;
+    width: 23rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: 1px solid rgb(28, 28, 28);
+    text-align: center;
+}
+
+.containerForm button {
+    background: var(--main-color);
+    color: white;
+    margin-top: var(--element-marging);
+}
+
+.containerForm button:hover {
+    background: var(--second-color);
+}
+
+.containerForm label{
+    font-size: 1.5rem;
+    margin-top: var(--element-marging);
+}
+
+h2{
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 0;
+    /* margin-bottom: var(--element-marging); */
+}
+
+footer{
+    /* position: fixed;
+    bottom: 0; */
+    padding: var(--element-padding);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100%;
+}
+
+footer p{
+    font-size: 1.2rem;
+    color: #282828;
+}
+
+@media (min-width: 700px) {
+
+    .containerWelcome{
+        width: 100vw;
+        flex-flow: row;
+    }
+
+    .logo-fems{
+        display: none;
+    }
+
+    /*elemento de la derecha*/
+    .div2{
+        background-color: white;
+        height: 100vh;
+        width: 100%;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 5px 20px rgba(40,40, 40, 0.5);
+    }
+
+    .logo-color{
+        margin-bottom: 5rem;
+        width: 22rem;
+        display: block;
+    }
+
+    .google{
+        background-color: #EBEBEB;
+        display: block;
+        width: 25rem;
+    }
+
+    .containerWelcome button{
+        background-color: #EBEBEB;
+        display: block;
+        width: 25rem;
+    }
+
+    /*elementos de la izquierda*/
+    .modalContainer{
+        width: 100%;
+        margin-bottom: -10rem;
+    }
+
+    .modalContent{
+        font-size: 2rem;
+        font-weight: bold;
+        padding-left: 4rem;
+        text-align: left;
+    }
+
+    .modalSpan{
+        display: none;
+    }
+
+}

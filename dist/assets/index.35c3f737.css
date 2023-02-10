@@ -1,6 +1,6 @@
 *{
     font-size: 62.5%;
-    font-family:'Roboto', Arial, Helvetica, sans-serif;
+    font-family: 'Roboto';
 }
 
 body{
@@ -11,8 +11,7 @@ body{
 }
 
 #root{
-    height:100vh;
-    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +24,7 @@ body{
     --element-marging: 1.5rem;
 }
 
-/* Intento de cambio de clase para background  */
+/* Intento de cambio de clase para background 
 .root-background1{
     background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(./media/background-1.jpg);
     background-repeat: no-repeat;
@@ -37,7 +36,7 @@ body{
     background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(./media/background-2.png);
     background-repeat: repeat;
     background-size: 300px;
-}
+} */
 
 .containerWelcome{
     display: flex;
@@ -58,6 +57,11 @@ body{
     border: 0;
     box-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
     justify-content: center;
+ }
+
+ .containerWelcome button:hover {
+    color: white;
+    background: var(--main-color);
  }
 
 .logo-fems{
@@ -90,7 +94,7 @@ body{
 
 .google span{
     font-size: 1.5rem;
-    font-family:'Roboto', Arial, Helvetica, sans-serif;
+    font-family: 'roboto';
 }
 /* form view */
 .error{
@@ -130,7 +134,7 @@ body{
 }
 
 .modalContainer{
- 
+    background-color: rgba(255, 255, 255, 0.75);
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -140,20 +144,19 @@ body{
 }
 
 .modalContent{
-    background-color: rgba(255, 255, 255, 0.75);
     color: var(--main-color);
     font-size: 1.5rem;
-    padding: var(--element-marging);
 }
 
-.closeModal{
-    width: 4rem;
-    height: 4rem;
-    font-size: 2.8rem;
+.modalSpan{
+    width: 4.1rem;
+    height: 4.1rem;
+    font-size: 3rem;
+    font-weight: bold;
     color: var(--main-color);
     border-radius: 50%;
     background-color: white;
-    margin: 2rem;
+    margin-bottom: -6rem;
     cursor: pointer;
 }
 
@@ -162,7 +165,6 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background: white;
     border-radius: 20px;
     gap: 2rem;
@@ -182,6 +184,7 @@ body{
     width: fit-content;
     gap:1rem;
     max-width: 65rem;
+    gap:3rem;
 }
 
 .divContent div {
@@ -189,6 +192,7 @@ body{
     text-align: center;
     max-width: 30rem;
     width: 23rem;
+
 }
 
 .divContent label{
@@ -223,6 +227,12 @@ body{
     justify-content: center;
  }
 
+.containerForm button:hover {
+    background: var(--second-color);
+}
+
+
+
 h2{
     font-size: 2rem;
     color: var(--main-color);
@@ -236,7 +246,6 @@ footer{
     text-align: center;
     background-color: rgba(255, 255, 255, 0.5);
     width: 100%;
-    display: none;
 }
 
 footer p{
@@ -255,197 +264,6 @@ footer p{
 .divImage{
     display:none;
 }
-
-/*Formato Home*/
-.home {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    gap: 2rem;
-    margin:0;
-    align-items: center;
-    background-color:white;
-
-}
-
-.header {
-    background-image: linear-gradient(rgba(255, 168, 0, 0.5), rgba(154,84,160,0.75)),url(./media/background-2.png);
-    background-repeat: repeat;
-    background-size: 30rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-}
-
-.header p {
-    font-family: "Nunito", Arial, Helvetica, sans-serif;
-    font-size: 3.5rem;
-    color: white;
-    text-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
-    margin: 2rem;
-}
-
-
-.hide{
-    display: none;
-}
-
-.nav{
-    position: fixed;
-    top:0;
-    right: 0;
-    background: white;
-    width: 13rem;
-    height: 13rem;
-    padding: 2rem;
-    z-index: 1;
-    margin: 2rem;
-    border-radius:1rem;
-    display: flex;
-    flex-direction: column;
-    gap:1.5rem;
-    align-items: center;
-    justify-content: center;
-}
-
-#btn-menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  background: white;
-  font-size: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  float: right;
-  margin: 2rem;  
-}
-
-.fa-bars{
-    color:var(--main-color);
-}
-
-.nav button {
-    text-align: left ;
-    background: white;
-    color: #282828;
-    padding: 1rem;
-    font-size: 1.5rem;
-    width: 100%;
-    height: auto;
-    border-radius: 2rem;
-    cursor: pointer;
-    border: 0;
-}
-
-.menuBg {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100vh;
-background: rgba(0,0,0,0.5);
-display: none;
-}
-
-.showOptions{
-    display: block;
-}
-
-.containerNewPost{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: auto;
-}
-
-.containerNewPost input{
-    background-color:rgba(217, 217, 217, 0.65);
-    border-radius: 3rem;
-    border:0;
-    padding: 2rem 1rem;
-    width: 100%;
-    height: auto;
-    font-size: 1.5rem;
-}
-
-.containerNewPost button{
-    background: rgba(154,84,160,0.75);
-    color: white;
-    font-size: 1.5rem;
-    padding: var(--element-padding);
-    width: 10rem;
-    height: auto;
-    border-radius: 2rem;
-    cursor: pointer;
-    border: 0;
-    box-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
-    align-self: flex-end;
-}
-
-.containerAllPost {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: auto;
-}
-
-.containerPost {
-    background-color: rgba(154, 84, 160, 0.25);
-    border-radius: 2rem;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    font-size: 2rem;
-   
-}
-
-.containerPost p {
-    padding: 0 1rem;
-    align-self: flex-start;
-    color: #282828;
-}
-
-.optionsMenu {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: end;
-    width: 100%;
-    height: auto;
-    gap: 0.5rem;
-}
-
-.optionsMenu button {
-    background: rgba(244, 244, 244, 0.75);
-    color: var(--main-color);
-    font-size: 1rem;
-    padding: 0.5rem;
-    width: auto;
-    height: auto;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    border: 0;
-
-}
-
-/*Button Hovers*/
-.containerWelcome button:hover {
-    color: white;
-    background: var(--main-color);
- }
- 
-.containerForm button:hover {
-    background: var(--second-color);
-}
-
-.nav button:hover{
-    color: white;
-    background: var(--main-color);
- }
 
 @media (min-width: 700px) {
 
@@ -502,7 +320,7 @@ display: none;
         text-align: left;
     }
 
-    .closeModal{
+    .modalSpan{
         display: none;
     }
 

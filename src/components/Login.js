@@ -1,32 +1,117 @@
+import loginImg from '../media/login-img.png';
+import { expresions, allInputs, validateInput } from '../lib/validate-inputs.js';
+import background2 from '../media/background-2.png';
+import { loginWithEmail } from '../firebase/auth.js';
+
+// Fx para validar el contenito de los inputs
+const validFormLogin = (e) => {
+  switch (e.target.name) {
+    case 'email':
+      validateInput(expresions.email, e.target, 'email');
+      break;
+    case 'password':
+      validateInput(expresions.password, e.target, 'password');
+      break;
+    default:
+  }
+};
+
 export const Login = (onNavigate) => {
+  const divAll = document.createElement('div');
+  const divImage = document.createElement('img');
   const form = document.createElement('form');
-  const button = document.createElement('button');
-  const buttonBack = document.createElement('button');
+  const divContent = document.createElement('div');
+  const title = document.createElement('h2');
+  const divEmail = document.createElement('div');
   const inputEmail = document.createElement('input');
   const labelEmail = document.createElement('label');
-  const inputpass = document.createElement('input');
+  const errorEmail = document.createElement('p');
+  const divPassword = document.createElement('div');
+  const inputPassword = document.createElement('input');
   const labelPassword = document.createElement('label');
+  const errorPassword = document.createElement('p');
+  const buttonLogin = document.createElement('button');
 
-  form.setAttribute('class', 'container secondView');
+  divAll.setAttribute('class', 'divAll');
+  divImage.setAttribute('class', 'divImage');
+  divImage.setAttribute('src', loginImg);
+  divContent.setAttribute('class', 'divContent');
+  form.setAttribute('id', 'form');
+  form.setAttribute('class', 'containerForm login');
+  labelEmail.setAttribute('for', 'email');
+  inputEmail.setAttribute('name', 'email');
+  inputEmail.setAttribute('type', 'text');
   inputEmail.setAttribute('placeholder', 'xxxxxx@gmail.com');
   inputEmail.setAttribute('required', '');
-  inputEmail.setAttribute('name', 'email');
-  labelEmail.setAttribute('for', 'email');
-  inputpass.setAttribute('placeholder', '*********');
-  inputpass.setAttribute('required', '');
-  inputpass.setAttribute('name', 'password');
+  errorEmail.setAttribute('id', 'erroremail');
+  errorEmail.setAttribute('class', 'error');
   labelPassword.setAttribute('for', 'password');
+  inputPassword.setAttribute('name', 'password');
+  inputPassword.setAttribute('type', 'password');
+  inputPassword.setAttribute('placeholder', '*********');
+  inputPassword.setAttribute('required', '');
+  errorPassword.setAttribute('id', 'errorpassword');
+  errorPassword.setAttribute('class', 'error');
+  buttonLogin.setAttribute('name', 'login');
+  buttonLogin.setAttribute('type', 'submit');
 
+  title.textContent = 'Iniciar sesión';
   labelEmail.textContent = 'E-mail';
+  errorEmail.textContent = 'El email debe tener un formato valido. ';
   labelPassword.textContent = 'Contraseña';
+  errorPassword.textContent = 'La contraseña debe tener de 8 a 16 dígitos, mayúscula, minúscula, número, caracter especial y no acepta espacios.';
+  buttonLogin.textContent = 'Iniciar sesión';
 
-  button.textContent = 'Iniciar sesión';
-  buttonBack.textContent = 'Retroceder';
-  buttonBack.addEventListener('click', () => {
-    onNavigate('/');
+  divEmail.append(labelEmail, inputEmail, errorEmail);
+  divPassword.append(labelPassword, inputPassword, errorPassword);
+  divContent.append(divEmail, divPassword);
+  form.append(title, divContent, buttonLogin);
+  divAll.append(divImage, form);
+
+  inputEmail.addEventListener('keyup', validFormLogin);
+  inputEmail.addEventListener('blur', validFormLogin);
+  inputPassword.addEventListener('keyup', validFormLogin);
+  inputPassword.addEventListener('blur', validFormLogin);
+
+  // fx para iniciar sesión
+  function userLogin() {
+    const email = inputEmail.value;
+    const password = inputPassword.value;
+    // trayendo fx desde f/auth para iniciar sesión
+    loginWithEmail(email, password)
+      // si se cumple la promesa entonces...
+      .then((result) => {
+        const user = result.user;
+        // revisa si el correo no esta verificado
+        if (user.emailVerified === false) {
+          // entonces se alerta al usuario
+          alert('Email no verificado, se le envió un correo de verificación');
+        } else {
+          // si no (si esta verificado) se envia al usuario al home
+          onNavigate('/home');
+        }
+      }) // si no logra iniciar sesión, envía una alerta de error
+      .catch((error) => {
+        alert(error); // ej. no existe el correo
+      });
+  }
+
+  // Fx que valida los inputs y permite iniciar sesión si...
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // El valor de los inputs es verdadero
+    if (allInputs.email && allInputs.password) {
+      userLogin();
+    } else {
+      // Si es falso, se envía una alerta
+      alert('Por favor, revisa tus datos.');
+    }
   });
 
-  form.append(labelEmail, inputEmail, labelPassword, inputpass, button, buttonBack);
+  // cambiando el background de root
+  document.getElementById('root').style.backgroundImage = `linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(${background2})`;
+  document.getElementById('root').style.backgroundRepeat = 'repeat';
+  document.getElementById('root').style.backgroundSize = '300px';
 
-  return form;
+  return divAll;
 };

@@ -27,14 +27,14 @@ body{
 
 /* Intento de cambio de clase para background  */
 .root-background1{
-    background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(./media/background-1.jpg);
+    background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(/assets/background-1.9912941b.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: 35%;
 }
 
 .root-background2{
-    background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(./media/background-2.png);
+    background-image: linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(/assets/background-2.74171009.png);
     background-repeat: repeat;
     background-size: 300px;
 }
@@ -270,7 +270,7 @@ footer p{
 }
 
 .header {
-    background-image: linear-gradient(rgba(255, 168, 0, 0.5), rgba(154,84,160,0.75)),url(./media/background-2.png);
+    background-image: linear-gradient(rgba(255, 168, 0, 0.5), rgba(154,84,160,0.75)),url(/assets/background-2.74171009.png);
     background-repeat: repeat;
     background-size: 30rem;
     width: 100%;
