@@ -45,8 +45,12 @@ function showUserInformation(user) {
 // fx de firebase que nos permite reconocer si hay un usuario logueado...
 onAuthStateChanged(auth, (user) => {
   if (user) { // si hay usuario lo lleva al home y no le permite revolver
-    showUserInformation(user);
-    onNavigate('/home');
+    if (user.emailVerified) {
+      showUserInformation(user);
+      onNavigate('/home');
+    } else {
+      onNavigate('/');
+    }
   } else { // si no lo mantiene o lleva a la página welcome (no se puede ir a otras páginas)
     onNavigate('/');
   }

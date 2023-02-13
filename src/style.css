@@ -401,7 +401,23 @@ display: none;
     height: auto;
     margin: 0;
     font-size: 2rem;
-   
+}
+
+.containerPost div {
+    display: flex;
+    /* justify-content: space-between; */
+    width: 100%;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.info p {
+    font-size: 1rem;
+    margin: 0.2rem 0;
 }
 
 .containerPost p {
@@ -413,8 +429,8 @@ display: none;
 .optionsMenu {
     display: flex;
     flex-direction: row-reverse;
-    align-items: end;
-    width: 100%;
+    align-items:first baseline;
+    width: 30%;
     height: auto;
     gap: 0.5rem;
 }

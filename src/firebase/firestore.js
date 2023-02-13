@@ -1,5 +1,6 @@
 import {
-  getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, getDoc, updateDoc, setDoc,
+  getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc,
+  getDoc, updateDoc, setDoc, serverTimestamp, query, orderBy,
 } from 'firebase/firestore';
 import { auth } from './auth.js';
 import { app as firebase } from './firebase-config.js';
@@ -7,13 +8,17 @@ import { app as firebase } from './firebase-config.js';
 // constante que inicializa a firesotre (db = data base)
 export const db = getFirestore(firebase);
 
+const collectionPost = collection(db, 'posts');
+export const q = query(collectionPost, orderBy('createdAt', 'desc'));
+
 // addDoc fx desde firestore que nos permite guardar los post
 export const savePost = (post) => {
   const userId = auth.currentUser;
-  addDoc(collection(db, 'posts'), {
+  addDoc(collectionPost, {
     post,
     userUid: userId.uid,
-    email: userId.email,
+    user: userId.displayName,
+    createdAt: serverTimestamp(),
     // Time stamp, ordenar posts
   });
 };
@@ -24,7 +29,7 @@ export const savePost = (post) => {
 // onSnapShot fx desde firestore
 // onSnapshot = devuelve la actualizacion de la coleccion de documentos en tiempo real
 // Se maneja los eventos de manera asincrona con el callback y se ejecuta al final.
-export const onGetPosts = (callback) => onSnapshot(collection(db, 'posts'), callback);
+export const onGetPosts = (callback) => onSnapshot(q, callback);
 
 export const deletePost = (id) => deleteDoc(doc(db, 'posts', id));
 

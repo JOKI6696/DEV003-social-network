@@ -33,16 +33,16 @@ export function loginWithEmail(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 
-// opción 2 para tener datos del usuario --> home 46
-export function informationUser() {
-  const user = auth.currentUser;
-  if (user !== null) {
-    // console.log(user);
-    // const displayName = user.displayName;
-    // const email = user.email;
-    // const photoURL = user.photoURL;
-  } return user;
-}
+// // opción 2 para tener datos del usuario --> home 46
+// export function informationUser() {
+//   const user = auth.currentUser;
+//   if (user !== null) {
+//     // console.log(user);
+//     // const displayName = user.displayName;
+//     // const email = user.email;
+//     // const photoURL = user.photoURL;
+//   } return user;
+// }
 
 // export const updateUserProfile = (user, displayName, userPhoto) => {
 //   const userProperties = {

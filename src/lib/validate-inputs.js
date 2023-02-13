@@ -15,7 +15,7 @@ export const allInputs = {
 };
 
 // Fx que valida el input si cumple con el formato de la expresión, si...
-export const validateInput = (expresion, input, element) => {
+const validateInput = (expresion, input, element) => {
   // Se compara la expresión con el contenido del input
   if (expresion.test(input.value)) {
     // Entonces se llama al msj de error por ID, para cambiar su clase y ocultarlo
@@ -32,7 +32,7 @@ export const validateInput = (expresion, input, element) => {
 };
 
 // fx para validar que la contraseña y su confirmación coincidan
-export const validatePassword2 = () => {
+const validatePassword2 = () => {
   // Traemos los inputs a través del ID
   const inputPassword1 = document.getElementById('password');
   const inputPasswordConfirm = document.getElementById('password2');
@@ -45,5 +45,42 @@ export const validatePassword2 = () => {
     // Entonces se coloca la clase que oculta el error
     document.querySelector('#errorpassword2').classList.replace('error-display', 'error');
     allInputs.password = true;
+  }
+};
+
+// La fx que valida los inputs
+export const validForm = (e) => {
+  // Se coloca condición para cada input
+  switch (e.target.name) {
+    case 'user':
+      validateInput(expresions.user, e.target, 'user');
+      break;
+    case 'name':
+      validateInput(expresions.name, e.target, 'name');
+      break;
+    case 'email':
+      validateInput(expresions.email, e.target, 'email');
+      break;
+    case 'password':
+      validateInput(expresions.password, e.target, 'password');
+      validatePassword2();
+      break;
+    case 'password2':
+      validatePassword2();
+      break;
+    default:
+  }
+};
+
+export // Fx para validar el contenito de los inputs
+const validFormLogin = (e) => {
+  switch (e.target.name) {
+    case 'email':
+      validateInput(expresions.email, e.target, 'email');
+      break;
+    case 'password':
+      validateInput(expresions.password, e.target, 'password');
+      break;
+    default:
   }
 };

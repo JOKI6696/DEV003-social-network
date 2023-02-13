@@ -1,20 +1,7 @@
 import loginImg from '../media/login-img.png';
-import { expresions, allInputs, validateInput } from '../lib/validate-inputs.js';
+import { allInputs, validFormLogin } from '../lib/validate-inputs.js';
 import background2 from '../media/background-2.png';
 import { loginWithEmail } from '../firebase/auth.js';
-
-// Fx para validar el contenito de los inputs
-const validFormLogin = (e) => {
-  switch (e.target.name) {
-    case 'email':
-      validateInput(expresions.email, e.target, 'email');
-      break;
-    case 'password':
-      validateInput(expresions.password, e.target, 'password');
-      break;
-    default:
-  }
-};
 
 export const Login = (onNavigate) => {
   const divAll = document.createElement('div');

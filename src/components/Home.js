@@ -1,4 +1,4 @@
-import { informationUser, logout } from '../firebase/auth.js';
+import { auth, logout } from '../firebase/auth.js';
 import {
   deletePost, onGetPosts, savePost, getPost, updatePost,
 } from '../firebase/firestore.js';
@@ -42,8 +42,8 @@ export const Home = (onNavigate) => {
   buttonLogout.textContent = 'Cerrar sesión';
   buttonPost.textContent = 'Publicar';
 
-  // opción 2
-  informationUser();
+  // // opción 2
+  // informationUser();
 
   // el botón ejecuta la fx logout para cerrar sesión
   buttonLogout.addEventListener('click', logout);
@@ -62,16 +62,44 @@ export const Home = (onNavigate) => {
     // querySnapshot realizamos la impresion y escucha en tiempo real.
     querySnapshot.forEach((doc) => { // se ejecuta en cada post...
       const inputPosts = doc.data(); // doc.data = c/u de los post con su id
-      html += `
+      const currentUserUid = auth.currentUser.uid;
+      const postUserUid = inputPosts.userUid;
+      // console.log(currentUserUid, postUserUid);
+      const postDate = inputPosts.createdAt.toDate();
+      const formattedDate = postDate.toLocaleDateString('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+      if (currentUserUid === postUserUid) {
+        html += `
         <div class = 'containerPost home'>
-          <div class="optionsMenu">   
-            <button class='btn-delete' data-id="${doc.id}"> <i class="fa-solid fa-trash"></i> Eliminar</button>
-            <button class='btn-edit' data-id="${doc.id}"> <i class="fa-solid fa-pen"></i> Editar</button>
+          <div>
+          <div class="info">   
+            <p>${inputPosts.user}</p>
+            <p>${formattedDate}</p>
+         </div>
+            <div class="optionsMenu">   
+              <button class='btn-delete' data-id="${doc.id}"> <i class="fa-solid fa-trash"></i> Eliminar</button>
+              <button class='btn-edit' data-id="${doc.id}"> <i class="fa-solid fa-pen"></i> Editar</button>
+            </div>
           </div>
-
-          <p>${inputPosts.post}</p>
+        <p>${inputPosts.post}</p>
         </div>
   `;
+      } else {
+        html += `
+        <div class = 'containerPost home'>
+        <div class="info">   
+            <p>${inputPosts.user}</p>
+            <p>${formattedDate}</p>
+        </div>
+        <p>${inputPosts.post}</p>
+      </div>
+      `;
+      }
     });
 
     // la fx del botón para eliminar post
@@ -139,7 +167,7 @@ export const Home = (onNavigate) => {
     menuBg.style.display = 'none';
   }
 
-  iconMenu.addEventListener('click', showMenu);
+  divIconMenu.addEventListener('click', showMenu);
   menuBg.addEventListener('click', hideMenu);
 
   // mostrando elementos

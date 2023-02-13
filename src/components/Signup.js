@@ -1,33 +1,9 @@
 import {
-  expresions, allInputs, validateInput, validatePassword2,
+  allInputs, validForm, 
 } from '../lib/validate-inputs.js';
 import background2 from '../media/background-2.png';
 import { registerNewUser, verifyEmail } from '../firebase/auth.js';
 import { saveUser } from '../firebase/firestore.js';
-
-// La fx que valida los inputs
-const validForm = (e) => {
-  // Se coloca condición para cada input
-  switch (e.target.name) {
-    case 'user':
-      validateInput(expresions.user, e.target, 'user');
-      break;
-    case 'name':
-      validateInput(expresions.name, e.target, 'name');
-      break;
-    case 'email':
-      validateInput(expresions.email, e.target, 'email');
-      break;
-    case 'password':
-      validateInput(expresions.password, e.target, 'password');
-      validatePassword2();
-      break;
-    case 'password2':
-      validatePassword2();
-      break;
-    default:
-  }
-};
 
 export const Signup = (onNavigate) => {
   const form = document.createElement('form');
