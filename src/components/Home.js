@@ -1,6 +1,6 @@
 import { auth, logout } from '../firebase/auth.js';
 import {
-  deletePost, onGetPosts, savePost, getPost, updatePost,
+  deletePost, onGetPosts, savePost, getPost, updatePost, removeLikePost, addLikePost,
 } from '../firebase/firestore.js';
 
 export const Home = (onNavigate) => {
@@ -62,6 +62,9 @@ export const Home = (onNavigate) => {
     // querySnapshot realizamos la impresion y escucha en tiempo real.
     querySnapshot.forEach((doc) => { // se ejecuta en cada post...
       const inputPosts = doc.data(); // doc.data = c/u de los post con su id
+      // const likeNumber = inputPosts.like.length;
+      // 92>> <p class='countLike' data-id='${doc.id}'>${likeNumber}</p>
+      // console.log(likeNumber);
       const currentUserUid = auth.currentUser.uid;
       const postUserUid = inputPosts.userUid;
       // console.log(currentUserUid, postUserUid);
@@ -87,6 +90,7 @@ export const Home = (onNavigate) => {
             </div>
           </div>
         <p>${inputPosts.post}</p>
+        <button data-id="${doc.id}" class="buttonLike">Like</button>
         </div>
   `;
       } else {
@@ -97,6 +101,7 @@ export const Home = (onNavigate) => {
             <p>${formattedDate}</p>
         </div>
         <p>${inputPosts.post}</p>
+        <button  data-id="${doc.id}" class = "buttonLike">Like</button>
       </div>
       `;
       }
@@ -104,6 +109,31 @@ export const Home = (onNavigate) => {
 
     // la fx del botón para eliminar post
     divAllPost.innerHTML = html;
+
+    // funcionalidad del botón like
+    const btnLikes = divAllPost.querySelectorAll('.buttonLike');
+    console.log(btnLikes);
+    btnLikes.forEach((btnLike) => {
+      btnLike.addEventListener('click', () => {
+        const likedButton = btnLike.dataset.id; // undefined
+        console.log(likedButton);
+        const userUid = auth.currentUser.uid; // OK
+        console.log(userUid);
+        getPost(likedButton)
+          .then((doclike) => {
+            const userLike = doclike.data().like;
+            // const userLikes = justOne.like;
+            if (userLike.includes(userUid)) {
+              removeLikePost(likedButton, userUid);
+            } else {
+              addLikePost(likedButton, userUid);
+            }
+          }).catch((error) => {
+            console.log(error);
+          });
+      });
+    });
+
     // la fx se aplica a c/u de los botones de los post
     const btnsDelete = divAllPost.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {

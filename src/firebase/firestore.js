@@ -1,6 +1,6 @@
 import {
   getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc,
-  getDoc, updateDoc, setDoc, serverTimestamp, query, orderBy,
+  getDoc, updateDoc, setDoc, serverTimestamp, query, orderBy, arrayUnion, arrayRemove,
 } from 'firebase/firestore';
 import { auth } from './auth.js';
 import { app as firebase } from './firebase-config.js';
@@ -20,7 +20,18 @@ export const savePost = (post) => {
     user: userId.displayName,
     createdAt: serverTimestamp(),
     // Time stamp, ordenar posts
+    like: [],
   });
+};
+
+// agregar y quitar like
+
+export const addLikePost = (id, uidCurrentUser) => {
+  updateDoc(doc(db, 'posts', id), { like: arrayUnion(uidCurrentUser) });
+};
+
+export const removeLikePost = (id, uidCurrentUser) => {
+  updateDoc(doc(db, 'posts', id), { like: arrayRemove(uidCurrentUser) });
 };
 
 // no sabemos por qué esta aquí...

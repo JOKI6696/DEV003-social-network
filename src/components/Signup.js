@@ -1,5 +1,5 @@
 import {
-  allInputs, validForm, 
+  allInputs, validForm,
 } from '../lib/validate-inputs.js';
 import background2 from '../media/background-2.png';
 import { registerNewUser, verifyEmail } from '../firebase/auth.js';
