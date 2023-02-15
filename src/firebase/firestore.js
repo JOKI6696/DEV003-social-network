@@ -18,6 +18,7 @@ export const savePost = (post) => {
     post,
     userUid: userId.uid,
     user: userId.displayName,
+    userEmail: userId.email,
     createdAt: serverTimestamp(),
     // Time stamp, ordenar posts
     like: [],
