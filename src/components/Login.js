@@ -1,6 +1,4 @@
-import loginImg from '../media/login-img.png';
 import { allInputs, validFormLogin } from '../lib/validate-inputs.js';
-import background2 from '../media/background-2.png';
 import { loginWithEmail } from '../firebase/auth.js';
 
 export const Login = (onNavigate) => {
@@ -20,31 +18,41 @@ export const Login = (onNavigate) => {
   const buttonLogin = document.createElement('button');
 
   divAll.setAttribute('class', 'divAll');
+  divAll.setAttribute('id', 'divAll');
   divImage.setAttribute('class', 'divImage');
-  divImage.setAttribute('src', loginImg);
+  divImage.setAttribute('src', 'https://github.com/alextina/DEV003-social-network/blob/main/src/media/login-img.png?raw=true');
+  divImage.setAttribute('id', 'divImage');
   divContent.setAttribute('class', 'divContent');
+  divContent.setAttribute('id', 'divContent');
   form.setAttribute('id', 'form');
   form.setAttribute('class', 'containerForm login');
+  title.id = 'title';
+  divEmail.setAttribute('id', 'divEmail');
   labelEmail.setAttribute('for', 'email');
+  labelEmail.id = 'labelEmail';
   inputEmail.setAttribute('name', 'email');
   inputEmail.setAttribute('type', 'text');
   inputEmail.setAttribute('placeholder', 'xxxxxx@gmail.com');
   inputEmail.setAttribute('required', '');
+  inputEmail.id = 'inputEmail';
   errorEmail.setAttribute('id', 'erroremail');
   errorEmail.setAttribute('class', 'error');
   labelPassword.setAttribute('for', 'password');
+  labelPassword.id = 'labelPassword';
   inputPassword.setAttribute('name', 'password');
   inputPassword.setAttribute('type', 'password');
   inputPassword.setAttribute('placeholder', '*********');
   inputPassword.setAttribute('required', '');
+  inputPassword.id = 'inputPassword';
   errorPassword.setAttribute('id', 'errorpassword');
   errorPassword.setAttribute('class', 'error');
   buttonLogin.setAttribute('name', 'login');
   buttonLogin.setAttribute('type', 'submit');
+  buttonLogin.id = 'buttonLogin';
 
   title.textContent = 'Iniciar sesión';
   labelEmail.textContent = 'E-mail';
-  errorEmail.textContent = 'El email debe tener un formato valido. ';
+  errorEmail.textContent = 'El email debe tener un formato valido.';
   labelPassword.textContent = 'Contraseña';
   errorPassword.textContent = 'La contraseña debe tener de 8 a 16 dígitos, mayúscula, minúscula, número, caracter especial y no acepta espacios.';
   buttonLogin.textContent = 'Iniciar sesión';
@@ -96,7 +104,7 @@ export const Login = (onNavigate) => {
   });
 
   // cambiando el background de root
-  document.getElementById('root').style.backgroundImage = `linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(${background2})`;
+  document.getElementById('root').style.backgroundImage = 'linear-gradient(rgba(154,84,160,0.5), rgba(255, 168, 0, 0.5)), url(https://github.com/alextina/DEV003-social-network/blob/main/src/media/background-2.png?raw=true)';
   document.getElementById('root').style.backgroundRepeat = 'repeat';
   document.getElementById('root').style.backgroundSize = '300px';
 

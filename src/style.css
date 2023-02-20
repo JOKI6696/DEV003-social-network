@@ -272,7 +272,11 @@ footer p{
     text-shadow: 0 1px 2px rgba(40,40, 40, 0.5);
     margin: 2rem;
 }
-
+.containerAll2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .hide{
     display: none;
@@ -563,4 +567,61 @@ display: none;
         gap:2rem;  
         box-shadow: 0 5px 20px rgba(40,40, 40, 0.5);
     }
+   /* Formato de home  */
+    .header {
+        display: flex;
+        justify-content: flex-end;
+
+    }
+   
+   #btn-menu {
+        display: none;
+    }
+    .hide{
+        width: 15%;
+        padding: 2rem;
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+        border-right:1px solid rgba(28, 28, 28, 0.25);
+    }
+    .hide button {
+        text-align: left ;
+        color: #282828;
+        background-color: white;
+        padding: 1rem;
+        font-size: 1.5rem;
+        width: 90%;
+        height: auto;
+        border-radius: 2rem;
+        cursor: pointer;
+        border: 0;
+    }
+
+    .hide button:hover{
+        color: white;
+        background-color: var(--main-color);
+    }
+
+    .containerAll{
+        display: flex;
+        flex-direction: row;
+    }
+    .info h3 {
+        font-size: 1.3rem;
+        color: #454545;
+        margin: 0.2rem 0;
+        padding: 1rem;
+    }
+    .info p {
+        font-size: 1.2rem;
+        margin: 0.2rem 0;
+
+    }
+    .containerPost {
+        font-size: 2.8rem;
+    }
+
 }

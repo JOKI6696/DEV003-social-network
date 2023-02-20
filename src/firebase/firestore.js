@@ -35,9 +35,6 @@ export const removeLikePost = (id, uidCurrentUser) => {
   updateDoc(doc(db, 'posts', id), { like: arrayRemove(uidCurrentUser) });
 };
 
-// no sabemos por qué esta aquí...
-// export const getPosts = () => getDocs(collection(db, 'posts'));
-
 // onSnapShot fx desde firestore
 // onSnapshot = devuelve la actualizacion de la coleccion de documentos en tiempo real
 // Se maneja los eventos de manera asincrona con el callback y se ejecuta al final.

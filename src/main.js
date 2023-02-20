@@ -37,16 +37,10 @@ window.onpopstate = () => {
 
 root.appendChild(component(onNavigate));
 
-// opción 1
-function showUserInformation(user) {
-  console.log(user.displayName, user.email, user.uid);
-}
-
 // fx de firebase que nos permite reconocer si hay un usuario logueado...
 onAuthStateChanged(auth, (user) => {
   if (user) { // si hay usuario lo lleva al home y no le permite revolver
     if (user.emailVerified) {
-      showUserInformation(user);
       onNavigate('/home');
     } else {
       onNavigate('/');
